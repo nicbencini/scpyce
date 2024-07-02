@@ -1,11 +1,12 @@
 """
-This module contains the functions for the geometrical manipulation of vectors.
+Contains the object classes for point properties of the structural model.
 """
 import numpy as np
 
 class Material:
     """
-    This module contains the functions for the geometrical manipulation of vectors.
+    Creates a material object from the structural paramaters that define the
+    material.
     """
     # pylint: disable=too-many-instance-attributes
     # Eleven is reasonable in this case.
@@ -40,7 +41,7 @@ class Material:
     @staticmethod
 
     def default():
-        """This module contains the functions for the geometrical manipulation of vectors."""
+        """Returns a default steel material if no material is given."""
 
         default_material = Material('steel',
                                     210000, # MPa
@@ -57,7 +58,7 @@ class Material:
         return default_material
 
     def to_string(self):
-        """Returns a string with the object variables."""
+        """Returns a string representing the object."""
 
         return f'Material: name = {self.name}'
 
@@ -79,7 +80,8 @@ class Material:
 
 class Section:
     """
-    This module contains the functions for the geometrical manipulation of vectors.
+    Creates a section object from the structural paramaters that define the
+    section.
     """
     # pylint: disable=too-many-arguments
     # Six is reasonable in this case.
@@ -101,7 +103,7 @@ class Section:
     @staticmethod
 
     def default():
-        """This module contains the functions for the geometrical manipulation of vectors."""
+        """Returns a default UC305x305x97 section if no section is given."""
 
         default_section = Section('UC305x305x97',
                                   Material.default(),
@@ -113,7 +115,7 @@ class Section:
         return default_section
 
     def to_string(self):
-        """Returns a string with the object variables."""
+        """Returns a string representing the object."""
 
         return f'Section: name = {self.name}'
 
@@ -145,7 +147,7 @@ class LocalPlane:
         self.z_vector = z_vector
 
     def to_string(self):
-        """Returns a string with the object variables."""
+        """Returns a string representing the object."""
 
         return f'Local Plane at {self.origin}'
 

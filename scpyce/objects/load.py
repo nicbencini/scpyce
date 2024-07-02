@@ -1,12 +1,14 @@
 """
-This module contains the functions for the geometrical manipulation of vectors.
+Contains the object classes for point load objects of the structural model.
 """
+
 import numpy as np
 from objects import element # pylint: disable=import-error
 
 class PointLoad:
     """
-        Creates a point load object
+    Creates a point load object from a node defining the location and the 6 degrees
+    of freedom representing the load applications.
     """
     # pylint: disable=too-many-arguments
     # Eight is reasonable in this case.
@@ -30,7 +32,7 @@ class PointLoad:
         self.mz = mz
 
     def to_string(self):
-        """Returns a string with the object variables."""
+        """Returns a string representing the object."""
 
         return f'Load ({self.fx},{self.fy},{self.fz},{self.mx},{self.my},{self.mz})'
 

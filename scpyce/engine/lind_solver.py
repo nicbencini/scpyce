@@ -1,12 +1,22 @@
 """
-This module contains the functions for the geometrical manipulation of vectors.
+A linear direct solver for solving the gloabl stiffness matrix. This solver relies on the
+numpy linalg library which computes the exact solution, x, of the well-determined i.e.
+full rank, linear matrix equation ax = b.
+
+Limitations: Since this solver relies on the numpy library, the global stiffness matrix
+is constructed as dense matrix which is very memory intensive for larger matrixes. To 
+prevent using too much RAM the solver will throw a runtime error if the global stiffness
+matrix size exceeds 1 GB.
 """
 
 import numpy as np
 
 def solve(model):
     """
-    This module contains the functions for the geometrical manipulation of vectors.
+    Solves the stiffness matrix for a model.
+    
+    A wrapper function that references the methods of the stiffness matrix class in the 
+    correct order to solve the stiffness matrix for a given model.    
     """
 
     stiffness_matrix = StiffnessMatrix(model)
@@ -21,7 +31,7 @@ def solve(model):
 
 class StiffnessMatrix:
     """
-    description of class
+    Contains all methods for building and solving the stiffness matrix of a model.
     """
 
     def __init__(self, model):
@@ -56,7 +66,10 @@ class StiffnessMatrix:
 
     def solve(self):
         """
-        description of class
+        Solves the structural stiffness matrix (ks) using the force vector (fv) to obtain the 
+        node displacements. Reconstructs the global stiffness matrix (kg) by adding the
+        retrained degrees of freedom back into the model as zero.
+
         """
         reduced_displacement_vector = np.linalg.solve(self.structual_stiffness_matrix,
                                                       self.force_vector)
@@ -78,7 +91,7 @@ class StiffnessMatrix:
 
     def build_primary(self):
         """
-        description of class
+        Builds the primary/global stiffness matrix (kg) from the database model. 
         """
 
         bar_cursor = self.model.connection.cursor()
@@ -146,7 +159,8 @@ class StiffnessMatrix:
 
     def build_structural(self):
         """
-        description of class
+        Builds the structural stiffness matrix (ks) by removing the restrained degrees of freedom
+        from the primary stiffness matrix (kg)
         """
 
         support_cursor = self.model.connection.cursor()
@@ -186,7 +200,7 @@ class StiffnessMatrix:
 
     def build_force_vector(self):
         """
-        description of class
+        Builds the forces vector (fv) represeting the load applied to the system.
         """
 
         self.force_vector = np.zeros((self.ndof_primary),dtype=np.int8)
@@ -219,7 +233,7 @@ class StiffnessMatrix:
 
     def build_node_dispalcements(self):
         """
-        description of class
+        Builds the node displacement results and adds them to the SQLite database model.
         """
 
         results_cursor = self.model.connection.cursor()
@@ -250,7 +264,7 @@ class StiffnessMatrix:
 
     def build_node_reactions(self):
         """
-        description of class
+        Builds the node reacation results and adds them to the SQLite database model.
         """
 
         support_cursor = self.model.connection.cursor()

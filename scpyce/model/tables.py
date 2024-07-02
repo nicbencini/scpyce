@@ -1,5 +1,5 @@
 """
-    Description
+Containse the functions for building the tables in the SQLite database model.
 """
 import sqlite3
 

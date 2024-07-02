@@ -9,7 +9,11 @@ import numpy as np
 def add_bar(database, bar):
     """
     Adds a bar to the database. Returns the id of that bar. 
-    If the bar already exists it will return the id of the existing bar.
+    If the bar already exists it will return the id of the existing bar
+    and a warning will be returned.
+
+    Adds the nodes of the start and end point of the bar to the table 
+    if they do not already exist.
     """
     bar_id = None
 
@@ -113,8 +117,8 @@ def add_node(database, node):
 
 def add_material(database, material):
     """
-    Adds a node to the database. Returns the node_index of that node. 
-    If the node already exists it will return the node_index of the existing node.
+    Adds a material to the database. Returns the name of that material. 
+    If the material already exists it will return the name of the existing material.
     """
 
     material_name = None
@@ -169,8 +173,8 @@ def add_material(database, material):
 
 def add_section(database, section):
     """
-    Adds a node to the database. Returns the node_index of that node. 
-    If the node already exists it will return the node_index of the existing node.
+    Adds a section to the database. Returns the name of that section. 
+    If the section already exists it will return the name of the existing section.
     """
 
     section_name = None
@@ -219,7 +223,7 @@ def add_section(database, section):
 
 def add_support(database, support):
     """
-    Adds a support to the database. Returns the id of the node of the support. 
+    Adds a support to the database. Returns the index of the node of the support. 
     If the node already exists it will return the id of the existing node.
     """
 
@@ -270,8 +274,8 @@ def add_support(database, support):
 
 def add_point_load(database, pointload):
     """
-    Adds a point load to the database. Returns the id of the node of the point load. 
-    If the node already exists it will return the id of the existing node.
+    Adds a point load to the database. Returns the index of the node of the point load. 
+    If the node already exists it will return the index of the existing node.
     """
 
     node_index = None

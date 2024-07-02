@@ -1,5 +1,12 @@
 """
-Module doc string
+Contains the Model class for building and modifying the structural SQLite database 
+model which contains the geometrical and structural data used by the solver. 
+
+Results from the solver are stored in the model database after the solver is run.
+
+This module references the tables.py, read.py and write.py modules for reading and 
+modifying the database model.
+
 """
 
 import sqlite3
@@ -10,7 +17,17 @@ from model import read # pylint: disable=import-error
 
 class Model:
     """
-    Module doc string
+    Used for creating the tables for the database model and 
+    reading and writing into the databse. 
+
+    The Model class contains the variable for the file path to the model
+    and the SQLite connection.
+
+    IMPORTANT: 
+    - The build_tables method must be run to create the model tables before
+    data is stored in the model. 
+    -The close_connection method must be run to end work
+    on the model and close the connection to the SQLite database.
     """
     def __init__(self , file_path):
         self.database_path = file_path
@@ -20,7 +37,16 @@ class Model:
 
     def build_tables(self):
         """
-        Builds the tables for the model database.
+        Creates the following tables for the SQLite database model: 
+
+        - nodes
+        - bars
+        - sections
+        - materials
+        - supports
+        - loads
+        - node reactions
+        - node displacements
         """
 
         #Build object tables
@@ -47,85 +73,62 @@ class Model:
         write.add_bar(self, bar)
 
     def add_node(self, node):
-        """
-        Adds a node to the database. Returns the id of that node. 
-        If the node already exists it will return the id of the existing node.
-        """
+        """Adds a node to the database."""
 
         write.add_node(self, node)
 
 
     def add_material(self, material):
-        """
-        Adds a node to the database. Returns the node_index of that node. 
-        If the node already exists it will return the node_index of the existing node.
-        """
+        """Adds a material to the database."""
 
         write.add_material(self, material)
 
     def add_section(self, section):
-        """
-        Adds a node to the database. Returns the node_index of that node. 
-        If the node already exists it will return the node_index of the existing node.
-        """
+        """Adds a node to the database."""
 
         write.add_section(self,section)
 
     def add_support(self, support):
-        """
-        Adds a support to the database. Returns the id of the node of the support. 
-        If the node already exists it will return the id of the existing node.
-        """
+        """Adds a support to the database."""
 
         write.add_support(self, support)
 
     def add_point_load(self, pointload):
-        """
-        Adds a point load to the database. Returns the id of the node of the point load. 
-        If the node already exists it will return the id of the existing node.
-        """
+        """Adds a point load to the database."""
 
         write.add_point_load(self, pointload)
 
     def get_material(self, material_name):
-        """
-        Module doc string
-        """
+        """Gets a material from the database using the material name as reference."""
 
         material_object = read.get_material(self, material_name)
 
         return material_object
 
     def get_section(self, section_name):
-        """
-        Module doc string
-        """
+        """Gets a section from the database using the section name as reference."""
+
         section_object = read.get_section(self, section_name)
 
         return section_object
 
     def get_node(self, node_index):
-        """
-        Module doc string
-        """
+        """Gets a node from the database using the node index as a reference."""
+
         node_object = read.get_node(self, node_index)
 
         return node_object
 
     def get_bar(self, bar_name):
-        """
-        Module doc string
-        """
+        """Gets a bar from the database using the bar name as a reference."""
+
         bar_object = read.get_bar(self, bar_name)
 
         return bar_object
 
 
     def close_connection(self):
-        """
-        Closes the connection to the model database. 
-        IMPORTANT: this must be run to end work on the model.
-        """
+        """Closes the connection to the model database."""
 
         self.connection.close()
         print( f'Connection to {self.database_path} closed')

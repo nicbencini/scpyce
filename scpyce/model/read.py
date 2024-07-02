@@ -1,5 +1,5 @@
 """
-Description
+Contains functions for reading information from the SQLite database model.
 """
 import sqlite3
 import numpy as np
@@ -8,7 +8,11 @@ from objects import properties # pylint: disable=import-error
 from objects import element # pylint: disable=import-error
 
 def get_material(database, material_name):
-    """ Description """
+    """ 
+    Gets a material object from the SQLite database tables based on a material name reference.
+
+    Returns the material object. 
+    """
 
     material_cursor = database.connection.cursor()
     material_data = material_cursor.execute("SELECT * FROM property_material WHERE _id = ?",[material_name]).fetchone()
@@ -18,7 +22,11 @@ def get_material(database, material_name):
     return material_object
 
 def get_section(database, section_name):
-    """ Description """
+    """ 
+    Gets a section object from the SQLite database tables based on a section name reference.
+
+    Returns the section object. 
+    """
 
     section_cursor = database.connection.cursor()
     section_data = section_cursor.execute("SELECT * FROM property_section WHERE _id = ?",[section_name]).fetchone()
@@ -30,7 +38,12 @@ def get_section(database, section_name):
     return section_object
 
 def get_node(database, node_index):
-    """ Description """
+    """ 
+    Gets a node object from the SQLite database tables based on a node index reference.
+
+    Returns the node object. 
+    """
+
     node_cursor = database.connection.cursor()
     node_data = node_cursor.execute("SELECT * FROM element_node LIMIT 1 OFFSET ?",[int(node_index)]).fetchone()
 
@@ -43,7 +56,12 @@ def get_node(database, node_index):
     return node_object
 
 def get_bar(database, bar_name):
-    """ Description """
+    """ 
+    Gets a bar object from the SQLite database tables based on a bar name reference.
+
+    Returns the bar object. 
+    """
+
     bar_cursor = database.connection.cursor()
     bar_data = bar_cursor.execute("SELECT * FROM element_bar WHERE _id = ?",[bar_name]).fetchone()
     bar_data = list(bar_data)

@@ -1,5 +1,5 @@
 """
-This module contains the functions for the geometrical manipulation of vectors.
+Contains the object classes for element objects of the structural model.
 """
 import uuid
 import numpy as np
@@ -10,7 +10,7 @@ from objects import properties # pylint: disable=import-error
 
 class Node:
     """
-    Creates a node object.
+    Node object that represents a point in 3d space. 
     """
 
     def __init__(self,
@@ -24,19 +24,25 @@ class Node:
 
 
     def to_string(self):
-        """This module contains the functions for the geometrical manipulation of vectors."""
+        """Returns a string representing the object."""
 
         return f'Node at ({self.x},{self.y},{self.z})'
 
     def to_array(self):
-        """This module contains the functions for the geometrical manipulation of vectors."""
+        """Returns an array with the object variables."""
 
         return np.array([self.x,self.y,self.z])
 
 
 class Bar:
     """
-        Creates a bar object.
+    Bar object that represents a line between two nodes and contains stiffness
+    and end release information for the element.
+
+    Bar elements may be given a custom name for reference however if no name is
+    given the bar will be assigned a guid. Bar names must be unique otherwise 
+    bars with confilicting names will be overwritted once added to the database
+    model.
     """
 
     # pylint: disable=too-many-instance-attributes
@@ -67,7 +73,8 @@ class Bar:
 
     def local_stiffness_matrix(self):
         """
-        This module contains the functions for the geometrical manipulation of vectors.
+        Builds the local stiffness matrix for the bar based on the geometrical and structural
+        information for the bar.
         """
         # pylint: disable=too-many-locals
         # Seven is reasonable in this case.
@@ -149,7 +156,7 @@ class Bar:
 
     def transformation_matrix(self):
         """
-        This module contains the functions for the geometrical manipulation of vectors.
+        Builds the transformation matrix for the bar from local coordinates to global coordinates.
         """
 
         #Build the full transformation matrix for this element
@@ -205,9 +212,7 @@ class Support:
 
     def set_fix(self):
         """
-        Creates a 6 degeree of freedom node support object. 
-        Each degree of freedom is represented by a bool.
-        True = fixed, False = released.
+        Sets the support to fully fixed.
         """
         self.fx = True
         self.fy = True
@@ -218,9 +223,7 @@ class Support:
 
     def set_pin(self):
         """
-        Creates a 6 degeree of freedom node support object. 
-        Each degree of freedom is represented by a bool.
-        True = fixed, False = released.
+        Sets the support to pinned with rotoational releases only.
         """
         self.fx = True
         self.fy = True
@@ -233,12 +236,12 @@ class Support:
 
     def pin(node):
         # pylint: disable=no-self-argument
-        """This module contains the functions for the geometrical manipulation of vectors."""
+        """Returns a pinned support."""
 
         return Support(node,True,True,True,False,False,False)
 
     def fix(node):
         # pylint: disable=no-self-argument
-        """This module contains the functions for the geometrical manipulation of vectors."""
+        """Returns a fixed support."""
 
         return Support(node,True,True,True,True,True,True)
