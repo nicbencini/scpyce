@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module geometry.vector_3d</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="geometry.html"><font color="#ffffff">geometry</font></a>.vector_3d</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/nicbencini/scpyce_solver/scpyce/geometry/vector_3d.py">/home/nicbencini/scpyce_solver/scpyce/geometry/vector_3d.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;contains&nbsp;the&nbsp;functions&nbsp;for&nbsp;the&nbsp;geometrical&nbsp;manipulation&nbsp;of&nbsp;vectors.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-gram_schmit"><strong>gram_schmit</strong></a>(vector_1, vector_2)</dt><dd><tt>Creates&nbsp;an&nbsp;orthogonal&nbsp;vector&nbsp;to&nbsp;the&nbsp;first&nbsp;vector&nbsp;in&nbsp;a&nbsp;plane&nbsp;defined&nbsp;by&nbsp;both&nbsp;vectors.<br>
+&nbsp;<br>
+Parameters:<br>
+vector_1&nbsp;(vector_3d):&nbsp;The&nbsp;first&nbsp;vector&nbsp;defining&nbsp;the&nbsp;plane.<br>
+vector_2&nbsp;(vector_3d):&nbsp;The&nbsp;second&nbsp;vector&nbsp;defining&nbsp;the&nbsp;plane.<br>
+&nbsp;<br>
+Returns:<br>
+vector&nbsp;(vector_3d):&nbsp;The&nbsp;resultant&nbsp;orthogonal&nbsp;vector.</tt></dd></dl>
+ <dl><dt><a name="-is_parallel"><strong>is_parallel</strong></a>(vector_1, vector_2)</dt><dd><tt>Checks&nbsp;whether&nbsp;two&nbsp;vectors&nbsp;are&nbsp;parallel.<br>
+&nbsp;<br>
+Parameters:<br>
+vector_1&nbsp;(vector_3d):&nbsp;The&nbsp;first&nbsp;vector&nbsp;to&nbsp;compare.<br>
+vector_2&nbsp;(vector_3d):&nbsp;The&nbsp;second&nbsp;vector&nbsp;to&nbsp;compare.<br>
+&nbsp;<br>
+Returns:<br>
+bool:&nbsp;'true'&nbsp;if&nbsp;vectors&nbsp;are&nbsp;parallel&nbsp;and&nbsp;'false'&nbsp;if<br>
+vectors&nbsp;are&nbsp;not&nbsp;parallel.</tt></dd></dl>
+ <dl><dt><a name="-length"><strong>length</strong></a>(point_1, point_2)</dt><dd><tt>Gets&nbsp;the&nbsp;length&nbsp;of&nbsp;a&nbsp;vector&nbsp;between&nbsp;two&nbsp;points.<br>
+&nbsp;<br>
+Parameters:<br>
+point_1&nbsp;(vector_3d):&nbsp;A&nbsp;vector&nbsp;representing&nbsp;a&nbsp;point&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;calculate&nbsp;length&nbsp;from.<br>
+point_2&nbsp;(vector_3d):&nbsp;A&nbsp;vector&nbsp;representing&nbsp;a&nbsp;point&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;calculate&nbsp;length&nbsp;to.<br>
+&nbsp;<br>
+Returns:<br>
+float:&nbsp;The&nbsp;length&nbsp;of&nbsp;the&nbsp;line.</tt></dd></dl>
+ <dl><dt><a name="-magnitude"><strong>magnitude</strong></a>(vector)</dt><dd><tt>Returns&nbsp;the&nbsp;magnitude&nbsp;of&nbsp;a&nbsp;vector.<br>
+&nbsp;<br>
+Parameters:<br>
+vector&nbsp;(vector_3d):&nbsp;The&nbsp;vector&nbsp;to&nbsp;calcaute&nbsp;the&nbsp;magnitude&nbsp;of.<br>
+&nbsp;<br>
+Returns:<br>
+float:&nbsp;The&nbsp;magnitude&nbsp;of&nbsp;the&nbsp;vector</tt></dd></dl>
+ <dl><dt><a name="-unit"><strong>unit</strong></a>(vector)</dt><dd><tt>Returns&nbsp;a&nbsp;vector&nbsp;whose&nbsp;magnitude&nbsp;is&nbsp;1&nbsp;orientated&nbsp;to&nbsp;the&nbsp;input&nbsp;vector.<br>
+&nbsp;<br>
+Parameters:<br>
+vector&nbsp;(vector_3d):&nbsp;The&nbsp;vector&nbsp;to&nbsp;derive&nbsp;the&nbsp;unit&nbsp;vector&nbsp;from.<br>
+&nbsp;<br>
+Returns:<br>
+vector&nbsp;(vector_3d):&nbsp;The&nbsp;resultant&nbsp;unit&nbsp;vector.</tt></dd></dl>
+ <dl><dt><a name="-unit_x"><strong>unit_x</strong></a>()</dt><dd><tt>Returns&nbsp;a&nbsp;unit&nbsp;vector&nbsp;oriented&nbsp;to&nbsp;the&nbsp;x-axis.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+A&nbsp;unit&nbsp;vector&nbsp;in&nbsp;aligned&nbsp;to&nbsp;the&nbsp;x-axis.</tt></dd></dl>
+ <dl><dt><a name="-unit_y"><strong>unit_y</strong></a>()</dt><dd><tt>Returns&nbsp;a&nbsp;unit&nbsp;vector&nbsp;oriented&nbsp;to&nbsp;the&nbsp;y-axis.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+A&nbsp;unit&nbsp;vector&nbsp;in&nbsp;aligned&nbsp;to&nbsp;the&nbsp;y-axis.</tt></dd></dl>
+ <dl><dt><a name="-unit_z"><strong>unit_z</strong></a>()</dt><dd><tt>Returns&nbsp;a&nbsp;unit&nbsp;vector&nbsp;oriented&nbsp;to&nbsp;the&nbsp;z-axis<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+A&nbsp;unit&nbsp;vector&nbsp;in&nbsp;aligned&nbsp;to&nbsp;the&nbsp;z-axis.</tt></dd></dl>
+</td></tr></table>
+</body></html>

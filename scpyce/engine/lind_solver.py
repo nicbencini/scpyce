@@ -14,9 +14,16 @@ import numpy as np
 def solve(model):
     """
     Solves the stiffness matrix for a model.
-    
+
     A wrapper function that references the methods of the stiffness matrix class in the 
-    correct order to solve the stiffness matrix for a given model.    
+    correct order to solve the stiffness matrix for a given model.
+
+    Parameters:
+    model (object): an sql structural database model 
+
+    Returns:
+    None
+
     """
 
     stiffness_matrix = StiffnessMatrix(model)
@@ -70,6 +77,13 @@ class StiffnessMatrix:
         node displacements. Reconstructs the global stiffness matrix (kg) by adding the
         retrained degrees of freedom back into the model as zero.
 
+
+        Parameters:
+        None
+    
+        Returns:
+        None
+
         """
         reduced_displacement_vector = np.linalg.solve(self.structual_stiffness_matrix,
                                                       self.force_vector)
@@ -92,6 +106,13 @@ class StiffnessMatrix:
     def build_primary(self):
         """
         Builds the primary/global stiffness matrix (kg) from the database model. 
+
+        Parameters:
+        None
+    
+        Returns:
+        numpy array:the primary/global stiffness matrix (Kp) representing the stiffness of the 
+                    structural model.
         """
 
         bar_cursor = self.model.connection.cursor()
@@ -161,6 +182,14 @@ class StiffnessMatrix:
         """
         Builds the structural stiffness matrix (ks) by removing the restrained degrees of freedom
         from the primary stiffness matrix (kg)
+
+        Parameters:
+        None
+    
+        Returns:
+        numpy array:The structual stiffness matrix (Ks) representing the reduced stiffness
+                    matrix with all restrained degrees of freedom removed.
+
         """
 
         support_cursor = self.model.connection.cursor()
@@ -200,7 +229,14 @@ class StiffnessMatrix:
 
     def build_force_vector(self):
         """
-        Builds the forces vector (fv) represeting the load applied to the system.
+        Builds the forces vector (Fv) represeting the load applied to the system.
+
+        parameters:
+        None
+    
+        Returns:
+        numpy array:The force vector (Fv) representing the load applied to
+                     the system.
         """
 
         self.force_vector = np.zeros((self.ndof_primary),dtype=np.int8)
@@ -234,6 +270,12 @@ class StiffnessMatrix:
     def build_node_dispalcements(self):
         """
         Builds the node displacement results and adds them to the SQLite database model.
+        
+        Parameters:
+        None
+    
+        Returns:
+        None
         """
 
         results_cursor = self.model.connection.cursor()
@@ -265,6 +307,12 @@ class StiffnessMatrix:
     def build_node_reactions(self):
         """
         Builds the node reacation results and adds them to the SQLite database model.
+
+        Parameters:
+        None
+    
+        Returns:
+        None
         """
 
         support_cursor = self.model.connection.cursor()
