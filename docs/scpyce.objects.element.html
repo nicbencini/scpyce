@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module scpyce.objects.element</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="scpyce.html"><font color="#ffffff">scpyce</font></a>.<a href="scpyce.objects.html"><font color="#ffffff">objects</font></a>.element</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/nicbencini/scpyce_solver/scpyce/objects/element.py">/home/nicbencini/scpyce_solver/scpyce/objects/element.py</a></font></td></tr></table>
+    <p><tt>Contains&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;classes&nbsp;for&nbsp;element&nbsp;objects&nbsp;of&nbsp;the&nbsp;structural&nbsp;model.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="geometry.plane.html">geometry.plane</a><br>
+</td><td width="25%" valign=top><a href="objects.properties.html">objects.properties</a><br>
+<a href="uuid.html">uuid</a><br>
+</td><td width="25%" valign=top><a href="geometry.vector_3d.html">geometry.vector_3d</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="scpyce.objects.element.html#Bar">Bar</a>
+</font></dt><dt><font face="helvetica, arial"><a href="scpyce.objects.element.html#Node">Node</a>
+</font></dt><dt><font face="helvetica, arial"><a href="scpyce.objects.element.html#Support">Support</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Bar">class <strong>Bar</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Bar">Bar</a>(node_a:&nbsp;scpyce.objects.element.<a href="#Node">Node</a>,&nbsp;node_b:&nbsp;scpyce.objects.element.<a href="#Node">Node</a>,&nbsp;section:&nbsp;objects.properties.Section,&nbsp;orientation_vector:&nbsp;&amp;lt;built-in&nbsp;function&nbsp;array&amp;gt;,&nbsp;release_a:&nbsp;str&nbsp;=&nbsp;'XXXXXX',&nbsp;release_b:&nbsp;str&nbsp;=&nbsp;'XXXXXX',&nbsp;name:&nbsp;str&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+<a href="#Bar">Bar</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;represents&nbsp;a&nbsp;line&nbsp;between&nbsp;two&nbsp;nodes&nbsp;and&nbsp;contains&nbsp;stiffness<br>
+and&nbsp;end&nbsp;release&nbsp;information&nbsp;for&nbsp;the&nbsp;element.<br>
+&nbsp;<br>
+<a href="#Bar">Bar</a>&nbsp;elements&nbsp;may&nbsp;be&nbsp;given&nbsp;a&nbsp;custom&nbsp;name&nbsp;for&nbsp;reference&nbsp;however&nbsp;if&nbsp;no&nbsp;name&nbsp;is<br>
+given&nbsp;the&nbsp;bar&nbsp;will&nbsp;be&nbsp;assigned&nbsp;a&nbsp;guid.&nbsp;<a href="#Bar">Bar</a>&nbsp;names&nbsp;must&nbsp;be&nbsp;unique&nbsp;otherwise&nbsp;<br>
+bars&nbsp;with&nbsp;confilicting&nbsp;names&nbsp;will&nbsp;be&nbsp;overwritted&nbsp;once&nbsp;added&nbsp;to&nbsp;the&nbsp;database<br>
+model.<br>
+&nbsp;<br>
+Parameters:<br>
+node_a&nbsp;(node&nbsp;<a href="builtins.html#object">object</a>):&nbsp;<a href="#Node">Node</a>&nbsp;representing&nbsp;the&nbsp;start&nbsp;point&nbsp;of&nbsp;the&nbsp;bar.<br>
+node_b&nbsp;(node&nbsp;<a href="builtins.html#object">object</a>):&nbsp;<a href="#Node">Node</a>&nbsp;representing&nbsp;the&nbsp;end&nbsp;point&nbsp;of&nbsp;the&nbsp;bar.<br>
+section&nbsp;(section&nbsp;<a href="builtins.html#object">object</a>):&nbsp;Section&nbsp;property&nbsp;for&nbsp;bar.<br>
+orientation_vector&nbsp;(vector):&nbsp;Vector&nbsp;representing&nbsp;orientation&nbsp;of&nbsp;bar.<br>
+release_a&nbsp;(string):&nbsp;String&nbsp;representing&nbsp;releases&nbsp;of&nbsp;bar&nbsp;start&nbsp;node.<br>
+release_b&nbsp;(string):&nbsp;String&nbsp;representing&nbsp;releases&nbsp;of&nbsp;bar&nbsp;end&nbsp;node.<br>
+name&nbsp;(string):&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;bar.<br>
+&nbsp;<br>
+Returns:<br>
+bar&nbsp;objcet:&nbsp;The&nbsp;created&nbsp;bar&nbsp;<a href="builtins.html#object">object</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Bar-__init__"><strong>__init__</strong></a>(self, node_a: scpyce.objects.element.Node, node_b: scpyce.objects.element.Node, section: objects.properties.Section, orientation_vector: &lt;built-in function array&gt;, release_a: str = 'XXXXXX', release_b: str = 'XXXXXX', name: str = None)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Bar-local_stiffness_matrix"><strong>local_stiffness_matrix</strong></a>(self)</dt><dd><tt>Builds&nbsp;the&nbsp;local&nbsp;stiffness&nbsp;matrix&nbsp;for&nbsp;the&nbsp;bar&nbsp;based&nbsp;on&nbsp;the&nbsp;geometrical&nbsp;and&nbsp;structural<br>
+information&nbsp;for&nbsp;the&nbsp;bar.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+numpy&nbsp;array:&nbsp;Array&nbsp;representing&nbsp;the&nbsp;local&nbsp;stiffness&nbsp;matrix.</tt></dd></dl>
+
+<dl><dt><a name="Bar-transformation_matrix"><strong>transformation_matrix</strong></a>(self)</dt><dd><tt>Builds&nbsp;the&nbsp;transformation&nbsp;matrix&nbsp;for&nbsp;the&nbsp;bar&nbsp;from&nbsp;local&nbsp;coordinates&nbsp;to&nbsp;global&nbsp;coordinates.<br>
+&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+numpy&nbsp;array:&nbsp;Array&nbsp;representing&nbsp;the&nbsp;local&nbsp;transformation&nbsp;matrix.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Node">class <strong>Node</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Node">Node</a>(x:&nbsp;float,&nbsp;y:&nbsp;float,&nbsp;z:&nbsp;float)<br>
+&nbsp;<br>
+<a href="#Node">Node</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;represents&nbsp;a&nbsp;point&nbsp;in&nbsp;3d&nbsp;space.&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(float):&nbsp;The&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;node.<br>
+y&nbsp;(float):&nbsp;The&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;node.<br>
+z&nbsp;(float):&nbsp;The&nbsp;z&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;node.<br>
+&nbsp;<br>
+Returns:<br>
+<a href="#Node">Node</a>&nbsp;<a href="builtins.html#object">object</a>:&nbsp;<a href="#Node">Node</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;at&nbsp;the&nbsp;specified&nbsp;location.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Node-__init__"><strong>__init__</strong></a>(self, x: float, y: float, z: float)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Node-to_array"><strong>to_array</strong></a>(self)</dt><dd><tt>Returns&nbsp;an&nbsp;array&nbsp;with&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;variables.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+numpy&nbsp;array:&nbsp;Array&nbsp;representing&nbsp;the&nbsp;node&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="Node-to_string"><strong>to_string</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representing&nbsp;the&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+string:&nbsp;String&nbsp;representing&nbsp;the&nbsp;node&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Support">class <strong>Support</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Support">Support</a>(node:&nbsp;scpyce.objects.element.<a href="#Node">Node</a>,&nbsp;fx:&nbsp;bool,&nbsp;fy:&nbsp;bool,&nbsp;fz:&nbsp;bool,&nbsp;mx:&nbsp;bool,&nbsp;my:&nbsp;bool,&nbsp;mz:&nbsp;bool)<br>
+&nbsp;<br>
+Creates&nbsp;a&nbsp;6&nbsp;degeree&nbsp;of&nbsp;freedom&nbsp;node&nbsp;support&nbsp;<a href="builtins.html#object">object</a>.&nbsp;Each&nbsp;degree&nbsp;of&nbsp;freedom&nbsp;is&nbsp;represented&nbsp;by&nbsp;a&nbsp;bool.<br>
+True&nbsp;=&nbsp;fixed,&nbsp;False&nbsp;=&nbsp;released.<br>
+&nbsp;<br>
+Parameters:<br>
+node&nbsp;(node&nbsp;<a href="builtins.html#object">object</a>):&nbsp;The&nbsp;node&nbsp;location&nbsp;of&nbsp;the&nbsp;support.<br>
+fx&nbsp;(bool):&nbsp;The&nbsp;fixity&nbsp;of&nbsp;translations&nbsp;in&nbsp;the&nbsp;x&nbsp;direction.<br>
+fy&nbsp;(bool):&nbsp;The&nbsp;fixity&nbsp;of&nbsp;translations&nbsp;in&nbsp;the&nbsp;y&nbsp;direction.<br>
+fz&nbsp;(bool):&nbsp;The&nbsp;fixity&nbsp;of&nbsp;translations&nbsp;in&nbsp;the&nbsp;z&nbsp;direction.<br>
+mx&nbsp;(bool):&nbsp;The&nbsp;fixity&nbsp;of&nbsp;rotations&nbsp;about&nbsp;the&nbsp;x&nbsp;axis.<br>
+my&nbsp;(bool):&nbsp;The&nbsp;fixity&nbsp;of&nbsp;rotations&nbsp;about&nbsp;the&nbsp;y&nbsp;axis.<br>
+mz&nbsp;(bool):&nbsp;The&nbsp;fixity&nbsp;of&nbsp;rotations&nbsp;about&nbsp;the&nbsp;z&nbsp;axis.<br>
+&nbsp;<br>
+Returns:<br>
+support&nbsp;<a href="builtins.html#object">object</a>:&nbsp;The&nbsp;defined&nbsp;support&nbsp;<a href="builtins.html#object">object</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Support-__init__"><strong>__init__</strong></a>(self, node: scpyce.objects.element.Node, fx: bool, fy: bool, fz: bool, mx: bool, my: bool, mz: bool)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Support-fix"><strong>fix</strong></a>(node)</dt><dd><tt>Returns&nbsp;a&nbsp;fixed&nbsp;support&nbsp;at&nbsp;the&nbsp;given&nbsp;node&nbsp;location.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+support&nbsp;<a href="builtins.html#object">object</a>:&nbsp;Pinned&nbsp;support&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="Support-set_fix"><strong>set_fix</strong></a>(self)</dt><dd><tt>Sets&nbsp;the&nbsp;support&nbsp;to&nbsp;fully&nbsp;fixed.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+support&nbsp;<a href="builtins.html#object">object</a>:&nbsp;Fully&nbsp;fixed&nbsp;support&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="Support-set_pin"><strong>set_pin</strong></a>(self)</dt><dd><tt>Sets&nbsp;the&nbsp;support&nbsp;to&nbsp;pinned&nbsp;with&nbsp;rotoational&nbsp;releases&nbsp;only.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+support&nbsp;<a href="builtins.html#object">object</a>:&nbsp;Pinned&nbsp;support&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Support-pin"><strong>pin</strong></a>(node)</dt><dd><tt>Returns&nbsp;a&nbsp;pinned&nbsp;support&nbsp;at&nbsp;the&nbsp;given&nbsp;node&nbsp;location.<br>
+&nbsp;<br>
+Parameters:<br>
+None<br>
+&nbsp;<br>
+Returns:<br>
+support&nbsp;<a href="builtins.html#object">object</a>:&nbsp;Pinned&nbsp;support&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

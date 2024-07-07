@@ -11,6 +11,14 @@ from objects import properties # pylint: disable=import-error
 class Node:
     """
     Node object that represents a point in 3d space. 
+
+    Parameters:
+    x (float): The x coordinate of the node.
+    y (float): The y coordinate of the node.
+    z (float): The z coordinate of the node.
+
+    Returns:
+    Node object: Node object at the specified location.
     """
 
     def __init__(self,
@@ -24,12 +32,28 @@ class Node:
 
 
     def to_string(self):
-        """Returns a string representing the object."""
+        """
+        Returns a string representing the object.
+        
+        Parameters:
+        None
+
+        Returns:
+        string: String representing the node object.
+        """
 
         return f'Node at ({self.x},{self.y},{self.z})'
 
     def to_array(self):
-        """Returns an array with the object variables."""
+        """
+        Returns an array with the object variables.
+        
+        Parameters:
+        None
+
+        Returns:
+        numpy array: Array representing the node object.
+        """
 
         return np.array([self.x,self.y,self.z])
 
@@ -43,6 +67,18 @@ class Bar:
     given the bar will be assigned a guid. Bar names must be unique otherwise 
     bars with confilicting names will be overwritted once added to the database
     model.
+
+    Parameters:
+    node_a (node object): Node representing the start point of the bar.
+    node_b (node object): Node representing the end point of the bar.
+    section (section object): Section property for bar.
+    orientation_vector (vector): Vector representing orientation of bar.
+    release_a (string): String representing releases of bar start node.
+    release_b (string): String representing releases of bar end node.
+    name (string): The name of the bar.
+
+    Returns:
+    bar objcet: The created bar object.
     """
 
     # pylint: disable=too-many-instance-attributes
@@ -75,6 +111,12 @@ class Bar:
         """
         Builds the local stiffness matrix for the bar based on the geometrical and structural
         information for the bar.
+
+        Parameters:
+        None
+
+        Returns:
+        numpy array: Array representing the local stiffness matrix.
         """
         # pylint: disable=too-many-locals
         # Seven is reasonable in this case.
@@ -157,6 +199,13 @@ class Bar:
     def transformation_matrix(self):
         """
         Builds the transformation matrix for the bar from local coordinates to global coordinates.
+
+        
+        Parameters:
+        None
+
+        Returns:
+        numpy array: Array representing the local transformation matrix.
         """
 
         #Build the full transformation matrix for this element
@@ -184,9 +233,20 @@ class Bar:
 
 class Support:
     """
-        Creates a 6 degeree of freedom node support object. 
-        Each degree of freedom is represented by a bool.
-        True = fixed, False = released.
+    Creates a 6 degeree of freedom node support object. Each degree of freedom is represented by a bool.
+    True = fixed, False = released.
+
+    Parameters:
+    node (node object): The node location of the support.
+    fx (bool): The fixity of translations in the x direction.
+    fy (bool): The fixity of translations in the y direction.
+    fz (bool): The fixity of translations in the z direction.
+    mx (bool): The fixity of rotations about the x axis.
+    my (bool): The fixity of rotations about the y axis.
+    mz (bool): The fixity of rotations about the z axis.
+
+    Returns:
+    support object: The defined support object.
     """
 
     def __init__(self,
@@ -213,6 +273,12 @@ class Support:
     def set_fix(self):
         """
         Sets the support to fully fixed.
+
+        Parameters:
+        None
+
+        Returns:
+        support object: Fully fixed support object.
         """
         self.fx = True
         self.fy = True
@@ -224,6 +290,12 @@ class Support:
     def set_pin(self):
         """
         Sets the support to pinned with rotoational releases only.
+
+        Parameters:
+        None
+
+        Returns:
+        support object: Pinned support object.
         """
         self.fx = True
         self.fy = True
@@ -236,12 +308,28 @@ class Support:
 
     def pin(node):
         # pylint: disable=no-self-argument
-        """Returns a pinned support."""
+        """
+        Returns a pinned support at the given node location.
+        
+        Parameters:
+        None
+
+        Returns:
+        support object: Pinned support object.
+        """
 
         return Support(node,True,True,True,False,False,False)
 
     def fix(node):
         # pylint: disable=no-self-argument
-        """Returns a fixed support."""
+        """
+        Returns a fixed support at the given node location.
+        
+        Parameters:
+        None
+        
+        Returns:
+        support object: Pinned support object.
+        """
 
         return Support(node,True,True,True,True,True,True)

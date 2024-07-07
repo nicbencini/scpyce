@@ -1,5 +1,5 @@
 """
-Module Description
+Tests for the engine library.
 """
 
 import os
@@ -16,11 +16,11 @@ db_path = os.path.dirname(os.path.realpath(__file__)) +'/test_files/'+ 'database
 
 class LindSolverTests(unittest.TestCase):
     """
-    Class Description
+    Test for lind solver module.
     """
 
     def test_build_database(self):
-        """Description"""
+        """Test for building model database."""
 
         node1 = element.Node(0.5,0.5,1)
         node2 = element.Node(1,0,0)
@@ -63,7 +63,7 @@ class LindSolverTests(unittest.TestCase):
 
 
     def test_build_global_stiffness_matrix(self):
-        """Description"""
+        """Test for building global stiffness matrix."""
 
         structural_model = database.Model(db_path)
 

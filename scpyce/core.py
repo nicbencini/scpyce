@@ -1,24 +1,32 @@
+"""
+Console program for running solver.
+"""
 import time
-import numpy as np
 
-from objects import element
-from objects import properties
+from engine import lind_solver # pylint: disable=import-error
+from model import database # pylint: disable=import-error
 
-#Sign convention
+DB_PATH = input('Provide path to database model:')
 
-# Positive values represent upward forces
-# Negative values represent downward forces
+if DB_PATH == '':
+    DB_PATH = '/home/nicbencini/scpyce_solver/tests/test_files/database_1_model_test.db'
 
-# Clockwise moments are positive moments
-# Counter Clockwise moments are negative moments
+RUN_INPUT = None
 
+while RUN_INPUT != 'n':
 
-#input('Run solver?')
+    RUN_INPUT = input('Run solver? (y/n)')
 
-startTime = time.time()
-print('Solver Initialized.....')
+    if RUN_INPUT == 'y':
 
+        startTime = time.time()
+        print('Solver Initialized.....')
 
+        structural_model = database.Model(DB_PATH)
 
-executionTime = (time.time() - startTime)
-print('Execution time in seconds: ' + str(executionTime))
+        result = lind_solver.solve(structural_model)
+
+        structural_model.close_connection()
+
+        executionTime = time.time() - startTime
+        print('Execution time in seconds: ' + str(executionTime))

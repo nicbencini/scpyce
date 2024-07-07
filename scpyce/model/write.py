@@ -14,6 +14,12 @@ def add_bar(database, bar):
 
     Adds the nodes of the start and end point of the bar to the table 
     if they do not already exist.
+
+    Parameters:
+    bar (bar object): The bar object to add to the database
+
+    Returns:
+    bar_id (string): The id of the added bar.
     """
     bar_id = None
 
@@ -72,6 +78,12 @@ def add_node(database, node):
     """
     Adds a node to the database. Returns the id of that node. 
     If the node already exists it will return the id of the existing node.
+    
+    Parameters:
+    node (node object): The node object to add to the database.
+
+    Returns:
+    node_index (int): The index of the added node.
     """
 
     node_index = None
@@ -119,6 +131,12 @@ def add_material(database, material):
     """
     Adds a material to the database. Returns the name of that material. 
     If the material already exists it will return the name of the existing material.
+    
+    Parameters:
+    material (material object): The material object to add to the database.
+
+    Returns:
+    material name (string): The name of the added material.
     """
 
     material_name = None
@@ -175,6 +193,12 @@ def add_section(database, section):
     """
     Adds a section to the database. Returns the name of that section. 
     If the section already exists it will return the name of the existing section.
+    
+    Parameters:
+    section (section object): The section object to add to the database.
+
+    Returns:
+    section name (string): The name of the added section.
     """
 
     section_name = None
@@ -225,6 +249,12 @@ def add_support(database, support):
     """
     Adds a support to the database. Returns the index of the node of the support. 
     If the node already exists it will return the id of the existing node.
+    
+    Parameters:
+    support (support object): The support object to add to the database.
+
+    Returns:
+    node index (int): Index of support node.
     """
 
     node_index = None
@@ -276,6 +306,12 @@ def add_point_load(database, pointload):
     """
     Adds a point load to the database. Returns the index of the node of the point load. 
     If the node already exists it will return the index of the existing node.
+    
+    Parameters:
+    pointload (pointload object): The pointload object to add to the database.
+
+    Returns:
+    node index (int): Index of point load node.
     """
 
     node_index = None

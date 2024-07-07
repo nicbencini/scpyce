@@ -6,6 +6,12 @@ import sqlite3
 def build_bar_table(connection):
     """
     Builds the bar table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -29,6 +35,12 @@ def build_bar_table(connection):
 def build_node_table(connection):
     """
     Builds the node table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -49,6 +61,12 @@ def build_node_table(connection):
 def build_support_table(connection):
     """
     Builds the support table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -72,6 +90,12 @@ def build_support_table(connection):
 def build_point_load_table(connection):
     """
     Builds the point load table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -95,6 +119,12 @@ def build_point_load_table(connection):
 def build_section_table(connection):
     """
     Builds the section table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -116,6 +146,12 @@ def build_section_table(connection):
 def build_material_table(connection):
     """
     Builds the material table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -142,6 +178,12 @@ def build_material_table(connection):
 def build_node_displacements_table(connection):
     """
     Builds the node displacements table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()
@@ -166,6 +208,12 @@ def build_node_displacements_table(connection):
 def build_node_reactions_table(connection):
     """
     Builds the node displacements table for the model database.
+
+    Parameters:
+    connection (SQL connection): Connection to the model database.
+
+    Returns:
+    None
     """
     # create a database cursor
     cur = connection.cursor()

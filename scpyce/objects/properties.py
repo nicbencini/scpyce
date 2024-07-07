@@ -7,6 +7,21 @@ class Material:
     """
     Creates a material object from the structural paramaters that define the
     material.
+
+    Parameters:
+    name (string): Name of the material.
+    youngs_modulus (float): Youngs modulus of the material.
+    poissons_ratio (float): Poissons ratio of the material.
+    shear_modulus (float): Shear modulus of the material.
+    coeff_thermal_expansion (float): Coefficient of thermal expansion of the material.
+    damping_ratio (float): Damping ration of the material.
+    density (float): Density of the material.
+    type (string): Type of the material.
+    region (string): Region of the material.
+    embodied_carbon (float): Embodied carbon of the material.
+
+    Returns:
+    material object: Resulting material object.
     """
     # pylint: disable=too-many-instance-attributes
     # Eleven is reasonable in this case.
@@ -41,7 +56,15 @@ class Material:
     @staticmethod
 
     def default():
-        """Returns a default steel material if no material is given."""
+        """
+        Returns a default steel material if no material is given.
+        
+        Parameters:
+        None
+
+        Returns:
+        material object: Material with pre-defined material properties.
+        """
 
         default_material = Material('steel',
                                     210000, # MPa
@@ -58,12 +81,28 @@ class Material:
         return default_material
 
     def to_string(self):
-        """Returns a string representing the object."""
+        """
+        Returns a string representing the object.
+
+        Parameters:
+        None
+
+        Returns:
+        string: String object representing the material.        
+        """
 
         return f'Material: name = {self.name}'
 
     def to_array(self):
-        """Returns an array with the object variables."""
+        """
+        Returns an array with the object variables.
+        
+        Parameters:
+        None
+
+        Returns:
+        numpy array: Array object representing the material.    
+        """
 
         return np.array([self.name,
                          self.youngs_modulus,
@@ -82,6 +121,16 @@ class Section:
     """
     Creates a section object from the structural paramaters that define the
     section.
+
+    Parameters:
+    name (string): Name of the section.
+    material (material object): Material object applied to section.
+    area (float): Area of section.
+    izz(float): The moment of inertia of the section in the z direction.
+    iyy(float): The moment of inertia of the section in the y direction.
+
+    Returns:
+    section object: Resultant section object.
     """
     # pylint: disable=too-many-arguments
     # Six is reasonable in this case.
@@ -103,7 +152,15 @@ class Section:
     @staticmethod
 
     def default():
-        """Returns a default UC305x305x97 section if no section is given."""
+        """
+        Returns a default UC305x305x97 section if no section is given.
+        
+        Parameters: 
+        None
+
+        Retruns:
+        section object: A section object with default properties.
+        """
 
         default_section = Section('UC305x305x97',
                                   Material.default(),
@@ -115,12 +172,28 @@ class Section:
         return default_section
 
     def to_string(self):
-        """Returns a string representing the object."""
+        """
+        Returns a string representing the object.
+
+        Parameters: 
+        None
+
+        Returns:
+        string: String object representing the section object.
+        """
 
         return f'Section: name = {self.name}'
 
     def to_array(self):
-        """Returns an array with the object variables."""
+        """
+        Returns an array with the object variables.
+        
+        Parameters: 
+        None
+
+        Returns:
+        numpy array: Array object representing the section object.
+        """
 
         return np.array([self.name,
                          self.material.name,
@@ -131,7 +204,16 @@ class Section:
 
 class LocalPlane:
     """
-    This module contains the functions for the geometrical manipulation of vectors.
+    Creates a local plane definig the orienation of a bar object.
+
+    Parameters: 
+    origin (numpy array): Origin of the plane.
+    x_vector (numpy array): Vector representing orienatation of x-axis of local plane. 
+    y_vector (numpy array): Vector representing orienatation of y-axis of local plane. 
+    z_vector (numpy array): Vector representing orienatation of z-axis of local plane. 
+
+    Returns:
+    local plane object: Resulting local plane object.
     """
 
     def __init__(self,
@@ -147,12 +229,28 @@ class LocalPlane:
         self.z_vector = z_vector
 
     def to_string(self):
-        """Returns a string representing the object."""
+        """
+        Returns a string representing the object.
+        
+        Parameters: 
+        None
+
+        Returns:
+        string: String object representing the local plane object.
+        """
 
         return f'Local Plane at {self.origin}'
 
     def to_array(self):
-        """Returns an array with the object variables."""
+        """
+        Returns an array with the object variables.
+        
+        Parameters: 
+        None
+
+        Returns:
+        numpy array: Array object representing the local plane object.
+        """
 
         return np.array([self.origin,
                          self.x_vector,

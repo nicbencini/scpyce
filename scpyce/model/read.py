@@ -11,7 +11,11 @@ def get_material(database, material_name):
     """ 
     Gets a material object from the SQLite database tables based on a material name reference.
 
-    Returns the material object. 
+    Parameters:
+    material_name (string): The name of the material to retreive from the database.
+
+    Returns:
+    material object: The retreived material. 
     """
 
     material_cursor = database.connection.cursor()
@@ -25,7 +29,11 @@ def get_section(database, section_name):
     """ 
     Gets a section object from the SQLite database tables based on a section name reference.
 
-    Returns the section object. 
+    Parameters:
+    section_name (string): The name of the section to retreive from the database.
+
+    Returns:
+    section object: The retreived section. 
     """
 
     section_cursor = database.connection.cursor()
@@ -41,7 +49,11 @@ def get_node(database, node_index):
     """ 
     Gets a node object from the SQLite database tables based on a node index reference.
 
-    Returns the node object. 
+    Parameters:
+    node_index (float): The index of the node to retreive from the database.
+
+    Returns:
+    node object: The retreived node.
     """
 
     node_cursor = database.connection.cursor()
@@ -59,7 +71,11 @@ def get_bar(database, bar_name):
     """ 
     Gets a bar object from the SQLite database tables based on a bar name reference.
 
-    Returns the bar object. 
+    Parameters:
+    bar_name (string): The name of the bar to retreive from the database.
+
+    Returns:
+    bar object: The retreived bar.  
     """
 
     bar_cursor = database.connection.cursor()

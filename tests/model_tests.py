@@ -1,5 +1,5 @@
 """
-Module Description
+Tests for the object library.
 """
 
 import os
@@ -13,13 +13,15 @@ from context import load # pylint: disable=import-error
 
 db_path = os.path.dirname(os.path.realpath(__file__)) +'/test_files/'+ 'database_1_model_test.db'
 
+print (db_path)
+
 class DatabaseTests(unittest.TestCase):
     """
-    Class Description
+    Tests for building the model database.
     """
 
     def test_build_database(self):
-        """Description"""
+        """Builds the database for a pyramid strucutre."""
 
         node1 = element.Node(0.5,0.5,1)
         node2 = element.Node(1,0,0)
@@ -62,7 +64,7 @@ class DatabaseTests(unittest.TestCase):
 
 
     def test_get_material(self):
-        """Description"""
+        """Test for getting material from the database."""
 
         structural_model = database.Model(db_path)
 
@@ -82,7 +84,7 @@ class DatabaseTests(unittest.TestCase):
         self.assertEqual(material.embodied_carbon, 12090.0)
 
     def test_get_section(self):
-        """Description"""
+        """Test for getting section from the database."""
 
         structural_model = database.Model(db_path)
 
@@ -97,7 +99,7 @@ class DatabaseTests(unittest.TestCase):
         structural_model.close_connection()
 
     def test_get_node(self):
-        """Description"""
+        """Test for getting node from the database."""
 
         structural_model = database.Model(db_path)
 
@@ -110,7 +112,7 @@ class DatabaseTests(unittest.TestCase):
         structural_model.close_connection()
 
     def test_get_bar(self):
-        """Description"""
+        """Test for getting bar from the database."""
 
         structural_model = database.Model(db_path)
 

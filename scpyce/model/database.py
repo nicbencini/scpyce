@@ -47,6 +47,12 @@ class Model:
         - loads
         - node reactions
         - node displacements
+
+        Parameters:
+        None
+
+        Returns:
+        None
         """
 
         #Build object tables
@@ -69,58 +75,137 @@ class Model:
         """
         Adds a bar to the database. Returns the id of that bar. 
         If the bar already exists it will return the id of the existing bar.
+
+        Parameters:
+        bar (bar object): The bar object to add to the database
+
+        Returns:
+        None
         """
         write.add_bar(self, bar)
 
     def add_node(self, node):
-        """Adds a node to the database."""
+        """
+        Adds a node to the database.
+        
+        Parameters:
+        node (node object): The node object to add to the database.
+
+        Returns:
+        None
+        """
 
         write.add_node(self, node)
 
 
     def add_material(self, material):
-        """Adds a material to the database."""
+        """
+        Adds a material to the database.
+        
+        Parameters:
+        material (material object): The material object to add to the database.
+
+        Returns:
+        None
+        """
 
         write.add_material(self, material)
 
     def add_section(self, section):
-        """Adds a node to the database."""
+        """
+        Adds a section to the database.
+        
+        Parameters:
+        section (section object): The section object to add to the database.
+
+        Returns:
+        None
+        """
 
         write.add_section(self,section)
 
     def add_support(self, support):
-        """Adds a support to the database."""
+        """
+        Adds a support to the database.
+        
+        Parameters:
+        support (support object): The support object to add to the database.
+
+        Returns:
+        None
+        """
+    
 
         write.add_support(self, support)
 
     def add_point_load(self, pointload):
-        """Adds a point load to the database."""
+        """
+        Adds a point load to the database.
+        
+        Parameters:
+        pointload (pointload object): The pointload object to add to the database.
+
+        Returns:
+        None
+        """
 
         write.add_point_load(self, pointload)
 
     def get_material(self, material_name):
-        """Gets a material from the database using the material name as reference."""
+        """
+        Gets a material from the database using the material name as reference.
+        
+        Parameters:
+        material_name (string): The name of the material to retreive from the database.
+
+        Returns:
+        material object: The retreived material. 
+        """
 
         material_object = read.get_material(self, material_name)
 
         return material_object
 
     def get_section(self, section_name):
-        """Gets a section from the database using the section name as reference."""
+        """
+        Gets a section from the database using the section name as reference.
+        
+        Parameters:
+        section_name (string): The name of the section to retreive from the database.
+
+        Returns:
+        section object: The retreived section.
+        """
 
         section_object = read.get_section(self, section_name)
 
         return section_object
 
     def get_node(self, node_index):
-        """Gets a node from the database using the node index as a reference."""
+        """
+        Gets a node from the database using the node index as a reference.
+        
+        Parameters:
+        node_index (float): The index of the node to retreive from the database.
+
+        Returns:
+        node object: The retreived node.
+        """
 
         node_object = read.get_node(self, node_index)
 
         return node_object
 
     def get_bar(self, bar_name):
-        """Gets a bar from the database using the bar name as a reference."""
+        """
+        Gets a bar from the database using the bar name as a reference.
+
+        Parameters:
+        bar_name (string): The name of the bar to retreive from the database.
+
+        Returns:
+        bar object: The retreived bar.        
+        """
 
         bar_object = read.get_bar(self, bar_name)
 
@@ -128,7 +213,15 @@ class Model:
 
 
     def close_connection(self):
-        """Closes the connection to the model database."""
+        """
+        Closes the connection to the model database.
+        
+        Parameters:
+        None
+
+        Returns:
+        None        
+        """
 
         self.connection.close()
         print( f'Connection to {self.database_path} closed')

@@ -1,5 +1,5 @@
 """
-Module Description
+Tests for the geometry library.
 """
 
 import unittest
@@ -11,11 +11,11 @@ from context import plane # pylint: disable=import-error
 
 class VectorTests(unittest.TestCase):
     """
-    Class Description
+    Tests for the vector module.
     """
 
-    def test_vector_magnituce(self):
-        """Description"""
+    def test_vector_magnitude(self):
+        """Test for vector magnitude."""
 
         vector = (11,23,2)
 
@@ -24,7 +24,7 @@ class VectorTests(unittest.TestCase):
         self.assertEqual(magnitude,25.573423705088842)
 
     def test_vector_unit(self):
-        """Description"""
+        """Test for unit vector."""
 
         vector = (11,23,2)
 
@@ -34,7 +34,7 @@ class VectorTests(unittest.TestCase):
         self.assertSequenceEqual(unit_vector.tolist(),control_vector.tolist())
 
     def test_vector_length(self):
-        """Description"""
+        """Test for vector length."""
 
         vector_1 = (0,0,0)
         vector_2 = (11,23,2)
@@ -45,7 +45,7 @@ class VectorTests(unittest.TestCase):
         self.assertEqual(length, control_length)
 
     def test_vector_gram_schmit(self):
-        """Description"""
+        """Test for gram schmit equation."""
 
         vector_1 = (11,23,2)
         vector_2 = (2,5,6)
@@ -57,7 +57,7 @@ class VectorTests(unittest.TestCase):
 
 
     def test_local_plane(self):
-        """Description"""
+        """Test for local plane."""
 
         point_1 = np.array([0.5,0.5,1])
         point_2 = np.array([1,0,0])

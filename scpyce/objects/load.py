@@ -9,6 +9,18 @@ class PointLoad:
     """
     Creates a point load object from a node defining the location and the 6 degrees
     of freedom representing the load applications.
+
+    Parameters:
+    node (node object): The node location of the load.
+    fx (bool): The load value in the x direction.
+    fy (bool): The load value in the y direction.
+    fz (bool): The load values in the z direction.
+    mx (bool): The moment load value about the x axis.
+    my (bool): The moment load value about the y axis.
+    mz (bool): The moment load value about the z axis.
+
+    Returns:
+    point load object: The defined point load object.
     """
     # pylint: disable=too-many-arguments
     # Eight is reasonable in this case.
@@ -32,12 +44,28 @@ class PointLoad:
         self.mz = mz
 
     def to_string(self):
-        """Returns a string representing the object."""
+        """
+        Returns a string representing the object.
+        
+        Parameters: 
+        None
+
+        Returns:
+        string: String object representing the load object.
+        """
 
         return f'Load ({self.fx},{self.fy},{self.fz},{self.mx},{self.my},{self.mz})'
 
     def to_array(self):
-        """Returns an array with the object variables."""
+        """
+        Returns an array with the object variables.
+        
+        Parameters: 
+        None
+
+        Returns:
+        numpy array: Array object representing the load object.
+        """
 
         return np.array([self.fx,
                          self.fy,

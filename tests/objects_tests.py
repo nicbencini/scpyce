@@ -1,5 +1,5 @@
 """
-Module Description
+Tests for the objects library.
 """
 
 import unittest
@@ -11,15 +11,15 @@ from context import load # pylint: disable=import-error
 
 class ElementTests(unittest.TestCase):
     """
-    Class Description
+    Test for element module.
     """
 
     def test_create_node(self):
-        """Description"""
+        """Test for creating node."""
         node1 = element.Node(0,0,0)
 
     def test_create_bar(self):
-        """Description"""
+        """Test for creating bar."""
 
         node1 = element.Node(0,0,0)
         node2 = element.Node(0,0,1)
@@ -30,20 +30,20 @@ class ElementTests(unittest.TestCase):
 
 
     def test_create_support(self):
-        """Description"""
+        """Test for creating support."""
 
         node1 = element.Node(0,0,0)
         support1 = element.Support.pin(node1)
 
 
     def test_create_load(self):
-        """Description"""
+        """Test for creating load."""
 
         node1 = element.Node(0,0,0)
         load1 = load.PointLoad(node1,0,0,10,0,0,0)
 
     def test_local_stiffness_matrix(self):
-        """Description"""
+        """Test for creating local stiffness matrix."""
 
         node1 = element.Node(0.5,0.5,1)
         node2 = element.Node(1,0,0)
