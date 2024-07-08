@@ -54,7 +54,7 @@ def add_bar(database, bar):
             (?,?,?,?,?,?,?)
             """
 
-        bar_value_string = (bar.id,
+        bar_value_string = (bar.name,
                             node_a_index,
                             node_b_index,
                             bar.section.name,
@@ -65,7 +65,7 @@ def add_bar(database, bar):
 
         cur.execute(bar_query, bar_value_string)
 
-        bar_id = bar.id
+        bar_id = bar.name
 
 
     database.connection.commit()
