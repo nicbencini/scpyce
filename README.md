@@ -1,5 +1,5 @@
 # About the project
-Scpyce is an SQL based structural engineering solver in Python for 3d systems. Each model built is stored as an SQLite database which is read by the solver to solve the stiffness matrix for the model and save resuls back in the database. 
+Scpyce is an SQL based structural engineering solver in Python for 3d systems with 6 degrees of freedom. Each model built is stored as an SQLite database which is read by the solver to solve the stiffness matrix for the model and save resuls back in the database. 
 
 _For more information on the project structure, please refer to the [Documentation](https://github.com/nicbencini/scpyce/tree/main/docs)_.
 
